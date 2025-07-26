@@ -1,5 +1,7 @@
 from stats import get_world_count
 from stats import get_char_count
+from stats import dict_into_list
+from stats import sort_on
 
 def get_book_text(path):
     with open("books/frankenstein.txt") as f:
@@ -9,13 +11,21 @@ def get_book_text(path):
 
 def main():
     book_text = get_book_text("books/frankenstein.txt")
-    print(book_text)
-
     total_words = get_world_count(book_text)
-    print(f"{total_words} words found in the document")
-
     char_count = get_char_count(book_text)
-    print(char_count)
-    
-   
+    char_into_list = dict_into_list(char_count)
+    char_count_sorted = sorted(char_into_list, key=sort_on, reverse=True)
+    char_count_sorted_isalpha = [item for item in char_count_sorted if item['char'].isalpha()]
+
+
+
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {"books/frankenstein.txt"}...")
+    print("----------- Word Count ----------")
+    print(f"Found {total_words} total words")
+    print("--------- Character Count -------")
+    for item in char_count_sorted_isalpha:
+        print(f"{item['char']}: {item['num']}")
+    print("============= END ===============")
+
 main()

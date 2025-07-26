@@ -11,3 +11,14 @@ def get_char_count(text):
         else:
             char_count[char] = 1
     return char_count
+
+
+def dict_into_list(char_count):
+    char_count_list = []
+    for char, count in char_count.items():
+        char_count_list.append({'char': char, 'num': count})
+    return char_count_list
+
+
+def sort_on(char_count):
+    return char_count['num']
