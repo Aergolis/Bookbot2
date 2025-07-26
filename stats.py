@@ -15,8 +15,13 @@ def get_char_count(text):
 
 def dict_into_list(char_count):
     char_count_list = []
+    isalpha_dump = []
     for char, count in char_count.items():
-        char_count_list.append({'char': char, 'num': count})
+        if char.isalpha():
+         char_count_list.append({'char': char, 'num': count})
+        else:
+            isalpha_dump.append({'char': char, 'num': count})
+            
     return char_count_list
 
 

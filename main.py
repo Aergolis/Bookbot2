@@ -15,7 +15,7 @@ def main():
     char_count = get_char_count(book_text)
     char_into_list = dict_into_list(char_count)
     char_count_sorted = sorted(char_into_list, key=sort_on, reverse=True)
-    char_count_sorted_isalpha = [item for item in char_count_sorted if item['char'].isalpha()]
+
 
 
 
@@ -24,7 +24,7 @@ def main():
     print("----------- Word Count ----------")
     print(f"Found {total_words} total words")
     print("--------- Character Count -------")
-    for item in char_count_sorted_isalpha:
+    for item in char_count_sorted:
         print(f"{item['char']}: {item['num']}")
     print("============= END ===============")
 
